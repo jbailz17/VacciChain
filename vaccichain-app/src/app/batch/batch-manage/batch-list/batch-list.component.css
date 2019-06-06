@@ -1,0 +1,18 @@
+.list-group {
+    height: 80vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.list-group::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+form {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+  

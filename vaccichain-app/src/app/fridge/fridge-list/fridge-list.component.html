@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="row section">
+        <div class="col-md-12 text-center">
+          <button class="btn btn-success" routerLink="add">Add New Fridge</button>
+        </div>
+      </div>
+      <div class="row section search">
+        <form (ngSubmit)="onSearch(searchFridge)" #searchFridge="ngForm" class="col-md-12">
+          <div class="form-row">
+            <div class="col-md-8">
+              <input class="form-control" type="text" 
+                placeholder="Enter Fridge ID" name="fridgeID" 
+                id="fridgeID" (change)="onSearch(searchFridge)" ngModel>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-success" type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <ul class="list-group col-md-12">
+          <app-fridge-list-item
+            *ngFor="let fridge of currentFridges"
+            [fridge]=fridge>
+          </app-fridge-list-item>
+        </ul>
+      </div>
+    </div>
+  </div>

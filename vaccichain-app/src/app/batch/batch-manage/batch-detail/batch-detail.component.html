@@ -1,0 +1,108 @@
+<div class="row">  
+    <div class="col-md-12 text-center">
+      <h3>Manage Batch</h3>
+      <form #batchForm="ngForm" class="col-md-12">
+        <div class="form-row align-items-center">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="col-md-12 text-left">
+                <label for="batchID">Batch ID</label>
+              </div> 
+              <input class="form-control" type="text" id="batchID" name="batchID" ngModel required disabled>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="col-md-12 text-left">
+                <label for="fridgeID">Fridge ID</label>
+              </div> 
+              <input class="form-control" type="text" id="fridgeID" name="fridgeID" ngModel required disabled>
+            </div>
+          </div>
+        </div>
+        <div class="form-row align-items-center">
+          <div class="col-md-12">
+            <div class="form-group">
+              <div class="col-md-12 text-left">
+                <label for="vacType">Vaccination Type</label>
+              </div>
+              <input class="form-control" type="text" id="vacType" name="vacType" ngModel required disabled>
+            </div>
+          </div>
+        </div>
+        <div class="form-row align-items-center">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="col-md-12 text-left">
+                <label for="initialTemp">Initial Temperature</label>
+              </div>
+              <input class="form-control" type="number" id="initialTemp" name="initialTemp" ngModel required disabled>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="col-md-12 text-left">
+                <label for="expiry">Expiry Date</label>
+              </div>
+              <input class="form-control" type="date" id="expiry" name="expiry" ngModel required disabled>
+            </div>
+          </div>
+        </div>
+        <div class="form-row align-items-center">
+          <div class="col-md-12">
+            <div class="form-group">
+              <div class="col-md-12 text-left">
+                <label for="batchInfo">Batch Information</label>
+              </div>
+              <textarea class="form-control" id="batchInfo" name="batchInfo" ngModel disabled></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="form-row align-items-center">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="col-md-12 text-left">
+                <label>Batch Expired</label>
+              </div>
+              <div class="col-md-12">
+                  <span *ngIf="expired == false">
+                    <input class="form-control good" value="In Date" disabled>
+                  </span>
+                  <span *ngIf="expired == true">
+                    <input class="form-control bad" value="Expired" disabled>
+                  </span>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="col-md-12 text-left">
+                <label>Batch Valid</label>
+              </div>
+              <div class="col-md-12">
+                <span *ngIf="fault == false">
+                  <input class="form-control good" value="Valid" disabled>
+                </span>
+                <span *ngIf="fault == true">
+                  <input class="form-control bad" value="Invalid" disabled>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="form-row">
+          <div class="col-md-6">
+            <button class="btn btn-success" type="submit" [disabled]="!batchForm.valid">Add</button>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-danger" type="reset">Clear</button>
+          </div>
+        </div> -->
+      </form>
+    </div>
+  </div>
+  <div class="row chart">
+    <div class="col-md-12">
+      <app-batch-chart [fridgeID]="fridgeID"></app-batch-chart>
+    </div>
+  </div>

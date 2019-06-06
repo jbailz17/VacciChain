@@ -1,0 +1,74 @@
+<div class="row">  
+  <div class="col-md-12 text-center">
+    <h3>Add a New Batch</h3>
+    <form (ngSubmit)="onAddBatch(batchForm)" #batchForm="ngForm" class="col-md-8">
+      <div class="form-row align-items-center">
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="col-md-12 text-left">
+              <label for="batchID">Batch ID</label>
+            </div> 
+            <input class="form-control" type="text" id="batchID" name="batchID" ngModel required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="col-md-12 text-left">
+              <label for="fridgeID">Fridge ID</label>
+            </div> 
+            <select class="form-control" type="text" id="fridgeID" name="fridgeID" ngModel required>
+              <option value="" selected disabled>Please Select a Fridge</option>
+              <option *ngFor="let fridge of fridges" value="{{fridge}}">{{fridge}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-row align-items-center">
+        <div class="col-md-12">
+          <div class="form-group">
+            <div class="col-md-12 text-left">
+              <label for="vacType">Vaccination Type</label>
+            </div>
+            <input class="form-control" type="text" id="vacType" name="vacType" ngModel required>
+          </div>
+        </div>
+      </div>
+      <div class="form-row align-items-center">
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="col-md-12 text-left">
+              <label for="initialTemp">Initial Temperature</label>
+            </div>
+            <input class="form-control" type="number" min="2" max="8" id="initialTemp" name="initialTemp" ngModel required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="col-md-12 text-left">
+              <label for="expiry">Expiry Date</label>
+            </div>
+            <input class="form-control" type="date" id="expiry" name="expiry" ngModel required>
+          </div>
+        </div>
+      </div>
+      <div class="form-row align-items-center">
+        <div class="col-md-12">
+          <div class="form-group">
+            <div class="col-md-12 text-left">
+              <label for="batchInfo">Batch Information</label>
+            </div>
+            <textarea class="form-control" id="batchInfo" name="batchInfo" ngModel></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6">
+          <button class="btn btn-success" type="submit" [disabled]="!batchForm.valid">Add</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-danger" type="reset">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

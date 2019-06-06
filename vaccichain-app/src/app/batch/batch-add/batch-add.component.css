@@ -1,0 +1,12 @@
+h3 {
+    margin-top: 4%;
+}
+
+form {
+    display: inline-block;
+    padding: 4%;
+    margin-top: 2%;
+    border: dotted #1496bb 2px;
+    border-radius: 2%;
+
+}

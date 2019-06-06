@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <form #searchBatch="ngForm" class="col-md-12">
+          <div class="form-row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <select class="form-control" id="batchID" name="batchID" (change)="findVial(searchBatch)" ngModel required>
+                  <option value="" disabled selected>Please select a batch</option>
+                  <option *ngFor="let batch of batches" value="{{batch}}">{{batch}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div *ngIf="batchSelected">
+        <div class="row">
+          <form (ngSubmit)="onSearch(searchVial)" #searchVial="ngForm" class="col-md-12 search">
+            <div class="form-row">
+              <div class="col-md-8">
+                <input class="form-control" type="text" 
+                  placeholder="Enter Vial ID" name="vialID" 
+                  id="vialID" ngModel (change)="onSearch(searchVial)">
+              </div>
+              <div class="col-md-4">
+                <button class="btn btn-success" type="submit">Search</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="row">
+          <ul class="list-group col-md-12">
+            <app-vial-list-item
+              *ngFor="let vial of currentVials"
+              [batch]=batchID
+              [vial]=vial>
+            </app-vial-list-item>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
